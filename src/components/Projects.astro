@@ -1,0 +1,70 @@
+---
+const data = [
+    {
+        heading: "TOGIT- Philips SSDC’23",
+        subheading: "Service Design I User Research",
+        description:
+            "Ranked in the top 20 teams globally for SSDC'23 hosted by Philips, IBM, IKEA, and the EMF, our project focused on the occupational wellbeing of women. Developed a unique intergenerational care childcare facility to alleviate maternal stress and promote work-life balance.",
+        image: "/images/projects/togit.png",
+        link: "https://drive.google.com/drive/folders/1HpbypVA9YuCzbKrQUF2oph4eZtMJlLr_?usp=drive_link",
+    },
+    {
+        heading: "Annapurna",
+        subheading: "UX Research I Interface Design",
+        description: "Reducing World hunger by efficient distribution of left-over food from commercial premises to the people who can’t even afford 2 square meals a day.",
+
+        image: "/images/projects/annapurna.png",
+        link: "https://www.behance.net/gallery/157004409/Annapurna-The-Food-Donation-App",
+    },
+    {
+        heading: "Recasting Fabindia",
+        subheading: "UX Research I Interface Design",
+        description:
+            "The online presence of every brand now plays a significant role to make it stand out in the market. Even though Fabindia already has its app, it has many flaws that we tried to solve to make the app grow much bigger than before.",
+        image: "/images/projects/fabindia.png",
+        link: "https://www.behance.net/gallery/144830463/UX-Case-Study-Recasting-Fabindia",
+    },
+];
+---
+
+<section
+    class="w-full px-5 sm:px-0 sm:w-4/5 max-w-[1400px] mx-auto items-center min-h-screen"
+    id="work"
+>
+    <h1 class="text-white mb-8 sm:mb-16">Featured Projects</h1>
+    <div class="flex flex-col gap-10 md:gap-32">
+        {
+            data.map((project, idx) => {
+                return (
+                    <a
+                        href={project.link}
+                        class={`flex justify-between items-center flex-col gap-5 md:gap-0 ${
+                            idx % 2 === 1
+                                ? "md:flex-row-reverse md:text-right"
+                                : "md:flex-row"
+                        }`}
+                        target="_blank"
+                    >
+                        <div class="md:w-5/12 aspect-video rounded-lg">
+                            <img
+                                src={project.image}
+                                class="object-cover h-full w-full rounded-lg hover:scale-105 transition-all cursor-pointer duration-300"
+                            />
+                        </div>
+                        <div class="font-mont w-full md:w-6/12 flex flex-col gap-2 ">
+                            <h2 class="font-voyage text-4xl md:text-5xl 2xl:text-6xl text-pink">
+                                {project.heading}
+                            </h2>
+                            <h4 class="text-gray font-mont text-md sm:text-2xl 2xl:text-3xl">
+                                {project.subheading}
+                            </h4>
+                            <p class="text-white text-md sm:block 2xl:text-xl">
+                                {project.description}
+                            </p>
+                        </div>
+                    </a>
+                );
+            })
+        }
+    </div>
+</section>
